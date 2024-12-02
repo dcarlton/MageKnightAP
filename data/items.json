@@ -1,0 +1,92 @@
+[
+  {
+    "count": "11",
+    "name": "Map Tile",
+    "category": [],
+    "progression": true
+  },
+  {
+    "count": "5",
+    "name": "Advanced Action",
+    "category": [],
+    "progression": true
+  },
+  {
+    "count": "5",
+    "name": "Skill",
+    "category": [],
+    "progression": true
+  },
+  {
+    "count": "4",
+    "name": "Command Token",
+    "category": [],
+    "progression": true
+  },
+  {
+    "count": "4",
+    "name": "Stat Increase",
+    "category": [],
+    "progression": true
+  },
+  {
+    "count": "9",
+    "name": "+1 Reputation",
+    "category": [],
+    "filler": true
+  },
+  {
+    "count": "6",
+    "name": "+2 Reputation",
+    "category": [],
+    "filler": true
+  },
+  {
+    "count": "6",
+    "name": "Keep - Increased Hand Limit",
+    "category": [],
+    "filler": true
+  },
+  {
+    "count": "5",
+    "name": "Spell",
+    "category": [],
+    "useful": true
+  },
+  {
+    "count": "4",
+    "name": "Artifact",
+    "category": [],
+    "useful": true
+  },
+  {
+    "count": "2",
+    "name": "2 Mana Crystals",
+    "category": [],
+    "filler": true
+  },
+  {
+    "count": "7",
+    "name": "Ruins Reward",
+    "category": [],
+    "useful": true
+  },
+  {
+    "count": "2",
+    "name": "Spell/Artifact",
+    "category": [],
+    "useful": true
+  },
+  {
+    "count": "2",
+    "name": "Artifact + 3 Mana Crystals",
+    "category": [],
+    "useful": true
+  },
+  {
+    "count": "2",
+    "name": "Spell + Artifact",
+    "category": [],
+    "useful": true
+  }
+]

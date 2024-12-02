@@ -1,0 +1,10 @@
+{
+    "game": "Mage Knight",
+    "creator": "aurabot",
+    "filler_item_name": "+3 Fame",
+    "starting_items": [
+        {
+            "items": ["Progressive Map Tile", "Progressive Map Tile"]
+        }
+    ]
+}

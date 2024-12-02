@@ -1,0 +1,557 @@
+[
+  {
+    "name": "Level 2 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 3 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 4 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 5 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 6 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 7 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 8 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 9 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 10 - 1",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 2 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 3 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 4 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 5 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 6 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 7 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 8 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 9 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Level 10 - 2",
+    "category": [
+      "Level Up"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 1",
+    "name": "Countryside Tile 1 - Marauding Orc",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 2 - Marauding Orc",
+    "region": "Countryside Tile 2",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 3 - Keep",
+    "region": "Countryside Tile 3",
+    "category": [
+      "Keep"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 4 - Maurading Orc",
+    "region": "Countryside Tile 4",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 4 - Mage Tower",
+    "region": "Countryside Tile 4",
+    "category": [
+      "Mage Tower"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 6 - Marauding Orc",
+    "region": "Countryside Tile 6",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 6 - Monster Den",
+    "region": "Countryside Tile 6",
+    "category": [
+      "Monster Den"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 5 - Marauding Orc",
+    "region": "Countryside Tile 5",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 5 - Monestery",
+    "region": "Countryside Tile 5",
+    "category": [
+      "Monestery"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 7 - Marauding Orc",
+    "region": "Countryside Tile 7",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 7 - Monestery",
+    "region": "Countryside Tile 7",
+    "category": [
+      "Monestery"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 7 - Dungeon",
+    "region": "Countryside Tile 7",
+    "category": [
+      "Dungeon"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 8 - Marauding Orc",
+    "region": "Countryside Tile 8",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 8 - Ruins",
+    "region": "Countryside Tile 8",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 9 - Keep",
+    "region": "Countryside Tile 9",
+    "category": [
+      "Keep"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 9",
+    "name": "Countryside Tile 9 - Mage Tower",
+    "category": [
+      "Mage Tower"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 9",
+    "name": "Countryside Tile 9 - Dungeon",
+    "category": [
+      "Keep"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 10",
+    "name": "Countryside Tile 10 - Keep",
+    "category": [
+      "Keep"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 10",
+    "name": "Countryside Tile 10 - Monster Den",
+    "category": [
+      "Monster Den"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 10",
+    "name": "Countryside Tile 10 - Ruins",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 11",
+    "name": "Countryside Tile 11 - Marauding Orc",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 11",
+    "name": "Countryside Tile 11 - Mage Tower",
+    "category": [
+      "Mage Tower"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Countryside Tile 11",
+    "name": "Countryside Tile 11 - Ruins",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Core Tile 1 - Monestery",
+    "region": "Core Tile 1",
+    "category": [
+      "Monestery"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 1",
+    "name": "Core Tile 1 - Spawning Grounds",
+    "category": [
+      "Spawning Grounds"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 1",
+    "name": "Core Tile 1 - Tomb",
+    "category": [
+      "Tomb"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 2",
+    "name": "Core Tile 2 - Mage Tower",
+    "category": [
+      "Mage Tower"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 2",
+    "name": "Core Tile 2 - Ruins",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 2",
+    "name": "Core Tile 2 - Draconum",
+    "category": [
+      "Draconum"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 3",
+    "name": "Core Tile 3 - Mage Tower",
+    "category": [
+      "Mage Tower"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 3",
+    "name": "Core Tile 3 - Ruins",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 3",
+    "name": "Core Tile 3 - Tomb",
+    "category": [
+      "Tomb"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 4",
+    "name": "Core Tile 4 - Keep",
+    "category": [
+      "Keep"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 4",
+    "name": "Core Tile 4 - Ruins",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 4",
+    "name": "Core Tile 4 - Draconum",
+    "category": [
+      "Draconum"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 5",
+    "name": "Core Tile 5 - Marauding Orc (Forest)",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 5",
+    "name": "Core Tile 5 - Marauding Orc (Swamp)",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 6",
+    "name": "Core Tile 6 - Draconum",
+    "category": [
+      "Draconum"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Core Tile 6 - Monestery",
+    "region": "Core Tile 6",
+    "category": [
+      "Monestery"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 7",
+    "name": "Core Tile 7 - Keep",
+    "category": [
+      "Keep"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 7",
+    "name": "Core Tile 7 - Spawning Grounds",
+    "category": [
+      "Spawning Grounds"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 7",
+    "name": "Core Tile 7 - Draconum",
+    "category": [
+      "Draconum"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 8",
+    "name": "Core Tile 8 - Ruins",
+    "category": [
+      "Ruins"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 8",
+    "name": "Core Tile 8 - Draconum (Desert)",
+    "category": [
+      "Draconum"
+    ],
+    "requires": []
+  },
+  {
+    "region": "Core Tile 8",
+    "name": "Core Tile 8 - Draconum (Wasteland)",
+    "category": [
+      "Draconum"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Exploration 1",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:3|"
+  },
+  {
+    "name": "Exploration 2",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:4|"
+  },
+  {
+    "name": "Exploration 3",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:5|"
+  },
+  {
+    "name": "Exploration 4",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:6|"
+  },
+  {
+    "name": "Exploration 5",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:7|"
+  },
+  {
+    "name": "Exploration 6",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:8|"
+  },
+  {
+    "name": "Exploration 7",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:9|"
+  },
+  {
+    "name": "Exploration 8",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:10|"
+  },
+  {
+    "name": "Exploration 9",
+    "category": [
+      "Exploration"
+    ],
+    "requires": "|Map Tile:11|"
+  },
+  {
+    "name": "Conquered All Cities",
+    "victory": true,
+    "category": [],
+    "requires": "|Map Tile:11| AND |Advanced Action:4| AND |Skill:4| AND |Command Token:3| AND |Stat Increase:3|"
+  }
+]

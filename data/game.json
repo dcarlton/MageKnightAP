@@ -1,0 +1,12 @@
+{
+  "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.game.schema.json",
+  "game": "MageKnight",
+  "creator": "aurabot",
+  "filler_item_name": "+3 Fame",
+  "starting_items": [
+    {
+      "items": ["Map Tile"],
+      "random": 2
+    }
+  ]
+}
