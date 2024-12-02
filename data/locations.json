@@ -166,22 +166,6 @@
     "requires": []
   },
   {
-    "name": "Countryside Tile 6 - Marauding Orc",
-    "region": "Countryside Tile 6",
-    "category": [
-      "Marauding Orc"
-    ],
-    "requires": []
-  },
-  {
-    "name": "Countryside Tile 6 - Monster Den",
-    "region": "Countryside Tile 6",
-    "category": [
-      "Monster Den"
-    ],
-    "requires": []
-  },
-  {
     "name": "Countryside Tile 5 - Marauding Orc",
     "region": "Countryside Tile 5",
     "category": [
@@ -197,6 +181,23 @@
     ],
     "requires": []
   },
+  {
+    "name": "Countryside Tile 6 - Marauding Orc",
+    "region": "Countryside Tile 6",
+    "category": [
+      "Marauding Orc"
+    ],
+    "requires": []
+  },
+  {
+    "name": "Countryside Tile 6 - Monster Den",
+    "region": "Countryside Tile 6",
+    "category": [
+      "Monster Den"
+    ],
+    "requires": []
+  },
+ 
   {
     "name": "Countryside Tile 7 - Marauding Orc",
     "region": "Countryside Tile 7",

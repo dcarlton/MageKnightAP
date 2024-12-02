@@ -1,3 +1,5 @@
+import random
+
 # Object classes from AP core, to represent an entire MultiWorld and this individual World that's part of it
 from worlds.AutoWorld import World
 from BaseClasses import MultiWorld, CollectionState
@@ -31,6 +33,16 @@ import logging
 
 
 
+random.seed()
+countryside_tiles = random.sample(range(1, 12), k=7)
+random.shuffle(countryside_tiles)
+core_non_city_tiles = random.sample(range(1, 5), k=2)
+core_city_tiles = random.sample(range(5, 9), k=2)
+core_tiles = core_non_city_tiles + core_city_tiles
+random.shuffle(core_tiles)
+map_tiles = countryside_tiles + core_tiles
+
+
 # Use this function to change the valid filler items to be created to replace item links or starting items.
 # Default value is the `filler_item_name` from game.json
 def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int) -> str | bool:
@@ -45,7 +57,20 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     # Use this hook to remove locations from the world
     locationNamesToRemove = [] # List of location names
 
+
     # Add your code here to calculate which locations to remove
+    # Remove the random map tiles which aren't being used
+    for region in multiworld.regions:
+        if not region.name.startswith("Countryside") or not region.name.startswith("Core"):
+            continue
+
+        region_name_split = region.name.split()
+        tile_type = region_name_split[0]
+        tile_number = region_name_split[2]
+        if (tile_type == "Countryside" and tile_number not in countryside_tiles) or (tile_type == "Core" and tile_number not in core_tiles):
+            for location in list(region.locations):
+                locationNamesToRemove.append(location.name)
+
 
     for region in multiworld.regions:
         if region.player == player:
@@ -68,6 +93,75 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
     #
     # Because multiple copies of an item can exist, you need to add an item name
     # to the list multiple times if you want to remove multiple copies of it.
+
+
+    # Removing the items for each map tile that isn't being used
+    if 1 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+    if 2 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+    if 3 not in countryside_tiles:
+        itemNamesToRemove.append("Keep - Increased Hand Limit")
+    if 4 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("Spell")
+    if 5 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("Artifact")
+    if 6 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("2 Mana Crystals")
+    if 7 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("Artifact")
+        itemNamesToRemove.append("Spell/Artifact")
+    if 8 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("Ruins Reward")
+    if 9 not in countryside_tiles:
+        itemNamesToRemove.append("Keep - Increased Hand Limit")
+        itemNamesToRemove.append("Spell")
+        itemNamesToRemove.append("Spell/Artifact")
+    if 10 not in countryside_tiles:
+        itemNamesToRemove.append("Keep - Increased Hand Limit")
+        itemNamesToRemove.append("Ruins Reward")
+        itemNamesToRemove.append("2 Mana Crystals")
+    if 11 not in countryside_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("Spell")
+        itemNamesToRemove.append("Ruins Reward")
+
+    if 1 not in core_tiles:
+        itemNamesToRemove.append("Artifact")
+        itemNamesToRemove.append("Artifact + 3 Mana Crystals")
+        itemNamesToRemove.append("Spell + Artifact")
+    if 2 not in core_tiles:
+        itemNamesToRemove.append("Spell")
+        itemNamesToRemove.append("Ruins Reward")
+        itemNamesToRemove.append("+2 Reputation")
+    if 3 not in core_tiles:
+        itemNamesToRemove.append("Spell")
+        itemNamesToRemove.append("Ruins Reward")
+        itemNamesToRemove.append("Spell + Artifact")
+    if 4 not in core_tiles:
+        itemNamesToRemove.append("Keep - Increased Hand Limit")
+        itemNamesToRemove.append("Ruins Reward")
+        itemNamesToRemove.append("+2 Reputation")
+    if 5 not in core_tiles:
+        itemNamesToRemove.append("+1 Reputation")
+        itemNamesToRemove.append("+1 Reputation")
+    if 6 not in core_tiles:
+        itemNamesToRemove.append("Artifact")
+        itemNamesToRemove.append("+2 Reputation")
+    if 7 not in core_tiles:
+        itemNamesToRemove.append("Keep - Increased Hand Limit")
+        itemNamesToRemove.append("Artifact + 3 Mana Crystals")
+        itemNamesToRemove.append("+2 Reputation")
+    if 8 not in core_tiles:
+        itemNamesToRemove.append("Ruins Reward")
+        itemNamesToRemove.append("+2 Reputation")
+        itemNamesToRemove.append("+2 Reputation")
+
 
     for itemName in itemNamesToRemove:
         item = next(i for i in item_pool if i.name == itemName)
