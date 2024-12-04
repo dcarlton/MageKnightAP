@@ -8,25 +8,25 @@
   {
     "count": "5",
     "name": "Advanced Action",
-    "category": [],
+    "category": ["Level Up Bonuses"],
     "progression": true
   },
   {
     "count": "5",
     "name": "Skill",
-    "category": [],
+    "category": ["Level Up Bonuses"],
     "progression": true
   },
   {
     "count": "4",
     "name": "Command Token",
-    "category": [],
+    "category": ["Level Up Bonuses"],
     "progression": true
   },
   {
     "count": "4",
     "name": "Stat Increase",
-    "category": [],
+    "category": ["Level Up Bonuses"],
     "progression": true
   },
   {

@@ -32,7 +32,8 @@ from .hooks.World import \
     before_set_rules, after_set_rules, \
     before_generate_basic, after_generate_basic, \
     before_fill_slot_data, after_fill_slot_data, before_write_spoiler, \
-    before_extend_hint_information, after_extend_hint_information
+    before_extend_hint_information, after_extend_hint_information, \
+    countryside_tiles, core_tiles
 from .hooks.Data import hook_interpret_slot_data
 
 class ManualWorld(World):
@@ -333,6 +334,19 @@ class ManualWorld(World):
         filename = f"{self.multiworld.get_out_file_name_base(self.player)}.apmanual"
         with open(os.path.join(output_directory, filename), 'wb') as f:
             f.write(b64encode(bytes(json.dumps(data), 'utf-8')))
+
+        # Write a file describing the tiles and ruins needed for setup
+        setup_txt = "Map Tiles top to bottom: Countryside tiles "
+        for tile in countryside_tiles:
+            setup_txt = setup_txt + str(tile) + " -> "
+        setup_txt = setup_txt + "Core tiles " + str(core_tiles[0])
+        del core_tiles[0] # Nothing else uses core_tiles after this so deleting a tile is OK
+        for tile in core_tiles:
+            setup_txt = setup_txt + " -> " + str(tile)
+        
+        with open(os.path.join(output_directory, filename.replace(".apmanual", ".txt")), 'w') as f:
+            f.write(setup_txt)
+
 
     def write_spoiler(self, spoiler_handle):
         before_write_spoiler(self, self.multiworld, spoiler_handle)

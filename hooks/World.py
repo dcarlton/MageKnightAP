@@ -60,11 +60,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     # Add your code here to calculate which locations to remove
     # Remove the random map tiles which aren't being used
-    print(f"Countryside tiles: {countryside_tiles}")
-    print(f"Core tiles: {core_tiles}")
-    import pdb; pdb.set_trace()
     for region in multiworld.regions:
-        print(f"Region: {region.name}")
         if region.name.startswith("Countryside") or region.name.startswith("Core"):
             region_name_split = region.name.split()
             tile_type = region_name_split[0]
