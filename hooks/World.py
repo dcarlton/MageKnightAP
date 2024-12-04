@@ -64,10 +64,28 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
         if region.name.startswith("Countryside") or region.name.startswith("Core"):
             region_name_split = region.name.split()
             tile_type = region_name_split[0]
-            tile_number = region_name_split[2]
-            if (tile_type == "Countryside" and int(tile_number) not in countryside_tiles) or (tile_type == "Core" and int(tile_number) not in core_tiles):
-                for location in list(region.locations):
-                    locationNamesToRemove.append(location.name)
+            tile_number = int(region_name_split[2])
+
+            if tile_type == "Countryside":
+                if tile_number not in countryside_tiles:
+                    for location in list(region.locations):
+                        locationNamesToRemove.append(location.name)
+                else:
+                    tiles_required = countryside_tiles.index(tile_number) + 1
+                    region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+            elif tile_type == "Core":
+                if tile_number not in core_tiles:
+                    for location in list(region.locations):
+                        locationNamesToRemove.append(location.name)
+                else:
+                    tiles_required = core_tiles.index(tile_number) + 8  # Need all 7 countryside tiles before collecting any core tiles
+                    region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+                    for location in list(region.locations):
+                        location.access_rule = lambda state: location.access_rule(state) and region.entrances[0].access_rule(state)
+
+            # if (tile_type == "Countryside" and int(tile_number) not in countryside_tiles) or (tile_type == "Core" and int(tile_number) not in core_tiles):
+            #     for location in list(region.locations):
+            #         locationNamesToRemove.append(location.name)
 
 
     for region in multiworld.regions:
@@ -202,6 +220,32 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     # location.access_rule = lambda state: old_rule(state) and Example_Rule(state)
     # OR
     # location.access_rule = lambda state: old_rule(state) or Example_Rule(state)
+
+    for region in multiworld.regions:
+        if region.name.startswith("Countryside") or region.name.startswith("Core"):
+            region_name_split = region.name.split()
+            tile_type = region_name_split[0]
+            tile_number = int(region_name_split[2])
+
+            if tile_type == "Countryside":
+                if tile_number not in countryside_tiles:
+                    pass
+                    # for location in list(region.locations):
+                    #     locationNamesToRemove.append(location.name)
+                else:
+                    tiles_required = countryside_tiles.index(tile_number) + 1
+                    region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+            elif tile_type == "Core":
+                if tile_number not in core_tiles:
+                    pass
+                    # for location in list(region.locations):
+                    #     locationNamesToRemove.append(location.name)
+                else:
+                    tiles_required = core_tiles.index(tile_number) + 8  # Need all 7 countryside tiles before collecting any core tiles
+                    region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+                    # for location in list(region.locations):
+                    #     old_rule = location.access_rule
+                    #     location.access_rule = lambda state: old_rule(state) and region.entrances[0].access_rule(state)
 
 # The item name to create is provided before the item is created, in case you want to make changes to it
 def before_create_item(item_name: str, world: World, multiworld: MultiWorld, player: int) -> str:
