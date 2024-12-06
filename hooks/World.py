@@ -34,13 +34,26 @@ import logging
 
 
 random.seed()
-countryside_tiles = random.sample(range(1, 12), k=7)
+
+countryside_tiles = list(range(1, 12))
 random.shuffle(countryside_tiles)
-core_non_city_tiles = random.sample(range(1, 5), k=2)
-core_city_tiles = random.sample(range(5, 9), k=2)
+unused_countryside_tiles = countryside_tiles[-4:]
+countryside_tiles = countryside_tiles[:-4]
+
+core_non_city_tiles = list(range(1, 5))
+random.shuffle(core_non_city_tiles)
+unused_core_non_city_tiles = core_non_city_tiles[-2:]
+core_non_city_tiles = core_non_city_tiles[:-2]
+
+core_city_tiles = list(range(5, 9))
+random.shuffle(core_city_tiles)
+unused_core_city_tiles = core_city_tiles[-2:]
+core_city_tiles = core_city_tiles[:-2]
+
 core_tiles = core_non_city_tiles + core_city_tiles
 random.shuffle(core_tiles)
 map_tiles = countryside_tiles + core_tiles
+
 countryside_tiles_with_ruins = [tile for tile in countryside_tiles if tile in [8, 10, 11]]
 core_tiles_with_ruins = [tile for tile in core_tiles if tile in [2, 3, 4, 8]]
 tiles_with_ruins = countryside_tiles_with_ruins + core_tiles_with_ruins
@@ -78,6 +91,15 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove = [] # List of location names
 
 
+    # for i in range(0, len(countryside_tiles)):
+    #     tile_number = countryside_tiles[i]
+    #     region = next(region for region in multiworld.regions if region.name == f"Countryside Tile {tile_number}")
+    #     region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, i + 1)
+    #     if tile_number in [8, 10, 11]:
+    #         ruins_location = next(location for location in region.locations if location.name.endswith(" - Ruins"))
+    #         ruins_location.access_rule = 
+
+
     # Add your code here to calculate which locations to remove
     # Remove the random map tiles which aren't being used
     for region in multiworld.regions:
@@ -90,18 +112,18 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 if tile_number not in countryside_tiles:
                     for location in list(region.locations):
                         locationNamesToRemove.append(location.name)
-                else:
-                    tiles_required = countryside_tiles.index(tile_number) + 1
-                    region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+                # else:
+                    # tiles_required = countryside_tiles.index(tile_number) + 1
+                    # region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
             elif tile_type == "Core":
                 if tile_number not in core_tiles:
                     for location in list(region.locations):
                         locationNamesToRemove.append(location.name)
-                else:
-                    tiles_required = core_tiles.index(tile_number) + 8  # Need all 7 countryside tiles before collecting any core tiles
-                    region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
-                    for location in list(region.locations):
-                        location.access_rule = lambda state: location.access_rule(state) and region.entrances[0].access_rule(state)
+                # else:
+                #     tiles_required = core_tiles.index(tile_number) + 8  # Need all 7 countryside tiles before collecting any core tiles
+                #     region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+                #     for location in list(region.locations):
+                #         location.access_rule = lambda state: location.access_rule(state) and region.entrances[0].access_rule(state)
 
 
     for region in multiworld.regions:
@@ -242,26 +264,51 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     # OR
     # location.access_rule = lambda state: old_rule(state) or Example_Rule(state)
 
-    for region in multiworld.regions:
-        if region.name.startswith("Countryside") or region.name.startswith("Core"):
-            region_name_split = region.name.split()
-            tile_type = region_name_split[0]
-            tile_number = int(region_name_split[2])
+    import pdb; pdb.set_trace()
+    ruins_count = 0
+    for i in range(0, len(countryside_tiles)):
+        tile_number = countryside_tiles[i]
+        region = next(region for region in multiworld.regions if region.name == f"Countryside Tile {tile_number}")
+        region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, i + 1)
+        if tile_number in [8, 10, 11]:
+            ruins_location = next(location for location in region.locations if location.name.endswith(" - Ruins"))
+            ruins_tile = ruins_tiles[ruins_count]
+            ruins_location.access_rule = lambda state: state.has("Level Up Bonuses", player, ruins_tiles_logic[ruins_tile]["required_level_ups"] * 2)
+            ruins_count = ruins_count + 1
 
-            if tile_type == "Countryside" and tile_number in countryside_tiles:
-                if tile_number > 7 and tile_number in tiles_with_ruins:
-                    ruins_location_index = region.locations.index(region.name + " - Ruins")
-                    ruins_tile = ruins_tiles[tiles_with_ruins.index(tile_number)]
-                    region.locations[ruins_location_index].access_rule = lambda state: state.has("Level Up Bonuses", player, ruins_tiles_logic[ruins_tile]["required_level_ups"] * 2)
-                tiles_required = countryside_tiles.index(tile_number) + 1
-                region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
-            elif tile_type == "Core" and tile_number in core_tiles:
-                if tile_number in tiles_with_ruins:
-                    ruins_location_index = region.locations.index(region.name + " - Ruins")
-                    ruins_tile = ruins_tiles[tiles_with_ruins.index(tile_number)]
-                    region.locations[ruins_location_index].access_rule = lambda state: state.has("Level Up Bonuses", player, ruins_tiles_logic[ruins_tile]["required_level_ups"] * 2)
-                tiles_required = core_tiles.index(tile_number) + 8  # Need all 7 countryside tiles before collecting any core tiles
-                region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+    for i in range(0, len(core_tiles)):
+        tile_number = core_tiles[i]
+        region = next(region for region in multiworld.regions if region.name == f"Core Tile {tile_number}")
+        region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, i + 8)
+        if tile_number in [2, 3, 4, 8]:
+            ruins_location = next(location for location in region.locations if location.name.endswith(" - Ruins"))
+            ruins_tile = ruins_tiles[ruins_count]
+            ruins_location.access_rule = lambda state: state.has("Level Up Bonuses", player, ruins_tiles_logic[ruins_tile]["required_level_ups"] * 2)
+            ruins_count = ruins_count + 1
+
+
+
+
+    # for region in multiworld.regions:
+    #     if region.name.startswith("Countryside") or region.name.startswith("Core"):
+    #         region_name_split = region.name.split()
+    #         tile_type = region_name_split[0]
+    #         tile_number = int(region_name_split[2])
+
+    #         if tile_type == "Countryside" and tile_number in countryside_tiles:
+    #             if tile_number > 7 and tile_number in tiles_with_ruins:
+    #                 ruins_location_index = region.locations.index(region.name + " - Ruins")
+    #                 ruins_tile = ruins_tiles[tiles_with_ruins.index(tile_number)]
+    #                 region.locations[ruins_location_index].access_rule = lambda state: state.has("Level Up Bonuses", player, ruins_tiles_logic[ruins_tile]["required_level_ups"] * 2)
+    #             tiles_required = countryside_tiles.index(tile_number) + 1
+    #             region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
+    #         elif tile_type == "Core" and tile_number in core_tiles:
+    #             if tile_number in tiles_with_ruins:
+    #                 ruins_location_index = region.locations.index(region.name + " - Ruins")
+    #                 ruins_tile = ruins_tiles[tiles_with_ruins.index(tile_number)]
+    #                 region.locations[ruins_location_index].access_rule = lambda state: state.has("Level Up Bonuses", player, ruins_tiles_logic[ruins_tile]["required_level_ups"] * 2)
+    #             tiles_required = core_tiles.index(tile_number) + 8  # Need all 7 countryside tiles before collecting any core tiles
+    #             region.entrances[0].access_rule = lambda state: state.has("Map Tile", player, tiles_required)
 
 # The item name to create is provided before the item is created, in case you want to make changes to it
 def before_create_item(item_name: str, world: World, multiworld: MultiWorld, player: int) -> str:
